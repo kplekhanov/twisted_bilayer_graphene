@@ -117,14 +117,14 @@ class Cell:
     def get_u_shift(self, shift_1, shift_2):
         return shift_1 * self.u1 + shift_2 * self.u2
     
-    def draw(self, fax):
+    def draw(self, fax, c="black"):
         vecs = [np.zeros(2), self.u1, self.u1+self.u2, self.u2, np.zeros(2)]
         vecs = [vec + self.u_origin for vec in vecs]
-        fax.plot([vec[0] for vec in vecs], [vec[1] for vec in vecs])
+        fax.plot([vec[0] for vec in vecs], [vec[1] for vec in vecs], c=c)
         
-    def draw_q(self, fax):
+    def draw_q(self, fax, c="black"):
         vecs = [np.zeros(2), self.q1, self.q1+self.q2, self.q2, np.zeros(2)]
-        fax.plot([vec[0] for vec in vecs], [vec[1] for vec in vecs])
+        fax.plot([vec[0] for vec in vecs], [vec[1] for vec in vecs], c=c)
         
 class Lattice:
     def __init__(self, cell):
